@@ -6,8 +6,15 @@
 //
 
 import Foundation
+import Combine
 
-var landmarks: [Landmark] = load("landmarkData.json")
+//This Observable Object will be passed into the environment to be used by the inherited Views of LandmarksApp.swift
+final class ModelData: ObservableObject {
+    //Published object will be watched by SwiftUI
+    //Not Published object will NOT be watch by SwiftUI
+    @Published var landmarks: [Landmark] = load("landmarkData.json")
+    
+}
 
 //Load Json file
 func load<T: Decodable>(_ filename: String) -> T {
