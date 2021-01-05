@@ -13,6 +13,7 @@ final class ModelData: ObservableObject {
     //Published object will be watched by SwiftUI
     //Not Published object will NOT be watch by SwiftUI
     @Published var landmarks: [Landmark] = load("landmarkData.json")
+    var hikes: [Hike] = load("hikeData.json")
     
 }
 
@@ -37,5 +38,6 @@ func load<T: Decodable>(_ filename: String) -> T {
     } catch {
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
+    
 
 }
